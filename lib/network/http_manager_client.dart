@@ -14,8 +14,6 @@ class HttpManagerClient {
     required String baseUrl,
     List<InterceptorsWrapper>? interceptorsWrapperList,
     String? proxyIpAddress,
-    Map<String, String>? header,
-    bool? isPrintLog,
   }) {
     clientBaseUrl = baseUrl;
     clientDio = Dio();
