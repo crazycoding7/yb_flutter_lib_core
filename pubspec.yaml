@@ -1,7 +1,7 @@
 name: yb_flutter_lib_core
 description: flutter quick core lib, like network manager、cache manager、permission manager、utils、base class...
 version: 0.0.1
-homepage: https://github.com/crazycoding7/flutter_lib_ui
+homepage: https://github.com/crazycoding7/yb_flutter_lib_core
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -10,6 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  dio: 4.0.6
+  common_utils: ^2.0.2
+  shared_preferences: ^2.0.7
+  permission_handler: ^8.1.4+2
+  path_provider: ^2.0.9
+  url_launcher: ^6.1.5
+  logger: any
+  date_format: ^2.0.4
+
 
 dev_dependencies:
   flutter_test:
