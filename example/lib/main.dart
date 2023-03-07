@@ -36,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   void _permissionRequest() async {
     Map<Permission, PermissionStatus>? status =
-        await PermissionUtil.requestPermission(
+        await PermissionUtil.requestPermissionNew(
             permissions: [Permission.storage]);
   }
 

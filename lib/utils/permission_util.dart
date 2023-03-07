@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:permission_handler/permission_handler.dart';
 
 /// 系统权限申请
@@ -15,7 +17,7 @@ class PermissionUtil {
   ///   }
   ///
   /// ```
-  static Future<Map<Permission, PermissionStatus>?> requestPermission(
+  static Future<Map<Permission, PermissionStatus>?> requestPermissionNew(
       {required List<Permission> permissions,
       bool isJustForAndroid = true}) async {
     if (!isJustForAndroid) {
@@ -32,5 +34,34 @@ class PermissionUtil {
   /// 打开系统权限界面
   static openSystemAppSettings() async {
     openAppSettings();
+  }
+
+  static Future<void> requestPermission({required Function callback}) async {
+    if (Platform.isAndroid) {
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.camera,
+      ].request();
+      if (statuses[Permission.camera] == PermissionStatus.denied) {
+        callback();
+      }
+    } else {
+      var status = await Permission.photos.status;
+      print(status);
+      if (status.isDenied || status.isPermanentlyDenied) {
+        callback();
+      }
+    }
+  }
+
+  static Future<void> requestPermissionAll({required Function callback}) async {
+    if (Platform.isAndroid) {
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.camera,
+        Permission.storage,
+      ].request();
+      if (statuses[Permission.camera] == PermissionStatus.denied) {
+        callback();
+      }
+    } else {}
   }
 }

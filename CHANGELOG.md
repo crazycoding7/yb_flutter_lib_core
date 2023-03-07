@@ -5,3 +5,11 @@
 ## 0.0.2
 
 * add net、permission、util class...
+
+## 0.0.2+1
+
+* utils update .
+
+## 0.0.2+2
+
+* utils update export file.
